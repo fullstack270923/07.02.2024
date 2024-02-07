@@ -29,8 +29,8 @@
         </tbody>
     </table>
     <br />
-    POST ID: <input type="number" id="post_id">&nbsp;
-    <button id="get_posts_btn" onclick="get_posts()">GET POST BY ID</button>
+    POST ID: <input type="number" id="post_id" onkeyup="get_posts()">&nbsp;
+    <button id="get_posts_btn" onclick="get_posts()" >GET POST BY ID</button>
     <script>
         function get_posts() {
             // 1 fire request
@@ -39,14 +39,26 @@
             //          then (response => {response.json()}) -- bring me the jsons
             //          then (data => { ... })
             
-            // show loading gif icon
-            fetch ('http://localhost:3000/posts')   // returns response
-                .then(response => response.json() ) // returns data - array of jsons 
+            const id = undefined
+            fetch ('http://localhost:3000/posts/' + document.getElementById('post_id').value)   // returns response
+                .then(response => { 
+
+                    // if not find post with this id -- the status will be 404
+                    if (response.status == 404) {
+                        // return null, because cannot json() when no result was returned
+                        return null;
+                    }
+                    return response.json()
+                } ) 
+                // returns data - array of jsons 
                 .then(posts => {
-                    // remove the loading gif icon
                     console.log(posts);
                     const tbody = document.getElementById('posts_table').getElementsByTagName('tbody')
                     tbody[0].innerHTML = '';
+
+                    // if not found and got null in the previous step then do nothing -- return
+                    if (posts == null)
+                        return;
 
                     if (Array.isArray(posts) == false) {
                         posts = [posts]
