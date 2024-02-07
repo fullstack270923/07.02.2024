@@ -9,7 +9,7 @@
           },
           {
             "id": "2",
-            "title": "Exploring the Mountains",
+            "title": "Exploring the Mountain",
             "author": "Chris Smith",
             "body": "Just returned from a week-long trek in the Rockies. The beauty of the untouched wilderness is breathtaking, and the challenges of mountain climbing are exhilarating. There's something about the crisp mountain air that revitalizes the soul. Can't wait for my next adventure!"
           },
@@ -32,4 +32,4 @@
             "body": "The world of technology is ever-evolving, and staying up-to-date with the latest trends is crucial. This week, I'm diving into the implications of artificial intelligence for everyday life. From smart homes to autonomous vehicles, the future is closer than we think."
           }        
     ]
-}
+  }
