@@ -44,7 +44,7 @@
                 .then(response => { 
 
                     // if not find post with this id -- the status will be 404
-                    if (response.status == 404) {
+                    if (response.status === 404) {
                         // return null, because cannot json() when no result was returned
                         return null;
                     }
